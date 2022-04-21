@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+
+        <script>
+document.addEventListener("DOMContentLoaded", function(){
+
+    const items = document.querySelectorAll('div.section');
+    items.forEach(ClickWacher);
+    function ClickWacher(item) {
+        // console.log(item.children[1]);
+        // console.log(item);
+
+        listt = Array.from(item.children);
+
+        listt.forEach(ulLists => {
+            ulLists.addEventListener('click', e => {
+            if(e.target.tagName.toLowerCase() === "button"){
+                if(e.target.value == "correct"){
+                    e.target.style.backgroundColor = "green";
+                    }
+
+                else{
+                    e.target.style.backgroundColor = "red";
+                    }
+
+            ulLists.nextElementSibling.innerText = e.target.value + "!";
+            }});
+        });
+    }
+
+    document.querySelector("#check").addEventListener("click",function(){
+        let input = document.querySelector("input");
+        if (input.value.toLowerCase() === "sun"){
+            input.style.backgroundColor = "green";
+            document.querySelector("#feedback2").innerHTML = "Correct!";
+            }
+        else {
+            input.style.backgroundColor = "red";
+            document.querySelector("#feedback2").innerHTML = "incorrect";
+            }
+    });
+
+});
+        </script>
+
+    </head>
+    <body>
+
+        <div class="jumbotron">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <h2>Part 1: Multiple Choice </h2>
+            <hr>
+
+            <div class="section">
+                <h3> Who invented the telephone?</h3>
+                <ul>
+                    <li><button value="incorrect">Fred Flintstone</button></li>
+                    <li><button value="incorrect">Rick Sancheze</button></li>
+                    <li><button value="correct">Alexander Graham Bell</button></li>
+                    <li><button value="incorrect">Stewie Griffin</button></li>
+                </ul>
+                <p class="feedback1"></p>
+
+            </div>
+
+            <div class="section">
+                <h3>What color are Smurfs?</h3>
+                <ul>
+                    <li><button value="incorrect">Pink</button></li>
+                    <li><button value="correct">Blue</button></li>
+                    <li><button value="incorrect">Phosphorescent green</button></li>
+                    <li><button value="incorrect">Dark white</button></li>
+                </ul>
+                <p class="feedback1"></p>
+            </div>
+
+            <div class="section">
+                <h3>What food do pandas eat?</h3>
+                <ul>
+                    <li><button value="incorrect" class="pop">Whopper
+                        <div class="tooltip">
+                            <div class="parent">
+                                <img id="panda" src="https://www.onthegotours.com/repository/Giant-Panda-sitting-on-forest-ground--China-Tours--On-The-Go-Tours-279771450457645_crop_610_410.jpg" alt="pan">
+                                <img id="burger" src="https://d3vkdqr0qjxhag.cloudfront.net/burger-king/whopper_jr_40519415d5.webp" alt="bur">
+                                </div>
+                            </div>
+                    </button></li>
+                    <li><button value="correct">Bamboo</button></li>
+                    <li><button value="incorrect">Koala</button></li>
+                    <li><button value="incorrect">Rice</button></li>
+                </ul>
+                <p id="feedback1"></p>
+            </div>
+
+            <!-- n -->
+            <h2>Part 2: Free Response</h2>
+            <hr>
+
+            <div class="sectionType">
+
+                <h3>Can you type of name the closest star to Earth?</h3>
+                <input type="text" placeholder="Type your answer in here..."></input>
+                <button id="check">Check the Answer!</button>
+                <p id="feedback2"></p>
+
+            </div>
+        </div>
+    </body>
+</html>
