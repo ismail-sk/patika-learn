@@ -14,7 +14,7 @@ Old google page clone for css study.
 see live here:
 https://pati-1998google-homework.surge.sh/Google!.html
 
-## odev2 - patigoogle3
+## odev3 - patigoogle3
 google page clone and edit for css study.
 [patika CSS learning home work(odev3)](https://app.patika.dev/courses/css/cssodev3)
 
